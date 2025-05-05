@@ -1,10 +1,9 @@
-import re
-import os
 import asyncio
+import os
+import re
 
 import aiofiles
 import aiohttp
-
 
 from config import SPIMEX_URL
 
