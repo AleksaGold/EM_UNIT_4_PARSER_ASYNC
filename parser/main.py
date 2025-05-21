@@ -1,9 +1,9 @@
 import asyncio
+from parser.spimex_downloader import URLManager
+from parser.spimex_parser import process_all_files_in_folder
 from time import time
 
-from db.database import drop_db, create_db, AsyncSessionMaker
-from spimex_downloader import URLManager
-from spimex_parser import process_all_files_in_folder
+from db.database import async_session_maker, create_db, drop_db
 
 
 async def main():
@@ -31,7 +31,7 @@ async def main():
 
     # Обрабатываем все файлы в папке tables
 
-    async with AsyncSessionMaker() as session:
+    async with async_session_maker() as session:
         await process_all_files_in_folder("tables", session)
 
     print("Обработка всех файлов завершена")
