@@ -1,9 +1,9 @@
 import asyncio
+from parser.spimex_downloader import URLManager
+from parser.spimex_parser import process_all_files_in_folder
 from time import time
 
 from db.database import async_session_maker, create_db, drop_db
-from parser.spimex_downloader import URLManager
-from parser.spimex_parser import process_all_files_in_folder
 
 
 async def main():
